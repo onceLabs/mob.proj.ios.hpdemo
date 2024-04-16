@@ -19,6 +19,7 @@ protocol BLEManagerProviding {
 public class BLEManager: NSObject, BLEManagerProviding {
     
     private var centralManager: CBCentralManager?
+    private var peripherals : [UUID: Peripheral] = [:]
     
     public override init() {
         super.init()
@@ -29,7 +30,7 @@ public class BLEManager: NSObject, BLEManagerProviding {
     }
     
     public func startScan(){
-        centralManager?.scanForPeripherals(withServices: [AdvService])
+        centralManager?.scanForPeripherals(withServices: [])
     }
     
     public func stopScan() {
@@ -64,20 +65,41 @@ extension BLEManager: CBCentralManagerDelegate {
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         if let name = peripheral.name {
-            print("Discovered Peripheral: \(name)")
+            // print("Discovered Peripheral: \(name)")
+            // Check if name matches "Throughput Test"
+            if name == "Throughput Test" {
+                print("Found Throughput Test")
+                // Add to peripherals
+                if let newPeripheral = BGM220P(peripheral: peripheral, advData: advertisementData) as (any Peripheral)? {
+                    peripherals[peripheral.identifier] = newPeripheral
+                    centralManager?.connect(peripheral)
+                }
+            }
         }
     }
     
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        
+        print("Connected to Peripheral")
+        // Check if peripheral is in peripherals
+        if let peripheral = peripherals[peripheral.identifier] {
+            peripheral.didConnect()
+        }
     }
     
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: (any Error)?) {
-        
+        print("Failed to connect to Peripheral")
+        // Check if peripheral is in peripherals
+        if let peripheral = peripherals[peripheral.identifier] {
+            peripheral.didDisconnect()
+        }
     }
     
     public func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: (any Error)?) {
-        
+        print("Disconnected from Peripheral")
+        // Check if peripheral is in peripherals
+        if let peripheral = peripherals[peripheral.identifier] {
+            peripheral.didDisconnect()
+        }
     }
     
 }
