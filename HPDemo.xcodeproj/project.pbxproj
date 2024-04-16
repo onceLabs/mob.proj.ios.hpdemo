@@ -14,6 +14,12 @@
 		389E996A2BCEA92C000309B8 /* HPDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99692BCEA92C000309B8 /* HPDemoTests.swift */; };
 		389E99742BCEA92C000309B8 /* HPDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99732BCEA92C000309B8 /* HPDemoUITests.swift */; };
 		389E99762BCEA92C000309B8 /* HPDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99752BCEA92C000309B8 /* HPDemoUITestsLaunchTests.swift */; };
+		389E99832BCEAA65000309B8 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99822BCEAA65000309B8 /* BLEManager.swift */; };
+		389E99872BCEB01B000309B8 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99862BCEB01B000309B8 /* Container.swift */; };
+		389E998A2BCEB0FC000309B8 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 389E99892BCEB0FC000309B8 /* Factory */; };
+		389E998D2BCEB202000309B8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E998C2BCEB202000309B8 /* HomeView.swift */; };
+		389E99902BCEB5F3000309B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E998F2BCEB5F3000309B8 /* HomeViewModel.swift */; };
+		389E99932BCEC52F000309B8 /* BGM220P.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99922BCEC52F000309B8 /* BGM220P.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,11 @@
 		389E996F2BCEA92C000309B8 /* HPDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HPDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		389E99732BCEA92C000309B8 /* HPDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDemoUITests.swift; sourceTree = "<group>"; };
 		389E99752BCEA92C000309B8 /* HPDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		389E99822BCEAA65000309B8 /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		389E99862BCEB01B000309B8 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		389E998C2BCEB202000309B8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		389E998F2BCEB5F3000309B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		389E99922BCEC52F000309B8 /* BGM220P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGM220P.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				389E998A2BCEB0FC000309B8 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +91,7 @@
 				389E99682BCEA92C000309B8 /* HPDemoTests */,
 				389E99722BCEA92C000309B8 /* HPDemoUITests */,
 				389E99552BCEA92B000309B8 /* Products */,
+				389E99882BCEB0FC000309B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,8 +108,12 @@
 		389E99562BCEA92B000309B8 /* HPDemo */ = {
 			isa = PBXGroup;
 			children = (
+				389E99912BCEC511000309B8 /* Model */,
+				389E998E2BCEB307000309B8 /* ViewModel */,
+				389E998B2BCEB1AA000309B8 /* View */,
+				389E99852BCEB008000309B8 /* Factory */,
+				389E99822BCEAA65000309B8 /* BLEManager.swift */,
 				389E99572BCEA92B000309B8 /* HPDemoApp.swift */,
-				389E99592BCEA92B000309B8 /* ContentView.swift */,
 				389E995B2BCEA92C000309B8 /* Assets.xcassets */,
 				389E995D2BCEA92C000309B8 /* HPDemo.entitlements */,
 				389E995E2BCEA92C000309B8 /* Preview Content */,
@@ -129,6 +146,46 @@
 			path = HPDemoUITests;
 			sourceTree = "<group>";
 		};
+		389E99852BCEB008000309B8 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				389E99862BCEB01B000309B8 /* Container.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		389E99882BCEB0FC000309B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		389E998B2BCEB1AA000309B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				389E99592BCEA92B000309B8 /* ContentView.swift */,
+				389E998C2BCEB202000309B8 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		389E998E2BCEB307000309B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				389E998F2BCEB5F3000309B8 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		389E99912BCEC511000309B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				389E99922BCEC52F000309B8 /* BGM220P.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +202,9 @@
 			dependencies = (
 			);
 			name = HPDemo;
+			packageProductDependencies = (
+				389E99892BCEB0FC000309B8 /* Factory */,
+			);
 			productName = HPDemo;
 			productReference = 389E99542BCEA92B000309B8 /* HPDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 389E994B2BCEA92A000309B8;
+			packageReferences = (
+				389E99842BCEAFF4000309B8 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = 389E99552BCEA92B000309B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				389E995A2BCEA92B000309B8 /* ContentView.swift in Sources */,
+				389E99932BCEC52F000309B8 /* BGM220P.swift in Sources */,
+				389E99902BCEB5F3000309B8 /* HomeViewModel.swift in Sources */,
+				389E99872BCEB01B000309B8 /* Container.swift in Sources */,
+				389E99832BCEAA65000309B8 /* BLEManager.swift in Sources */,
+				389E998D2BCEB202000309B8 /* HomeView.swift in Sources */,
 				389E99582BCEA92B000309B8 /* HPDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +492,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth will be used to scan for nearby BLE devices";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,6 +531,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth will be used to scan for nearby BLE devices";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -617,6 +687,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		389E99842BCEAFF4000309B8 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		389E99892BCEB0FC000309B8 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 389E99842BCEAFF4000309B8 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 389E994C2BCEA92A000309B8 /* Project object */;
 }
