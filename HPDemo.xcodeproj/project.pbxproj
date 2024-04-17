@@ -21,6 +21,7 @@
 		389E99902BCEB5F3000309B8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E998F2BCEB5F3000309B8 /* HomeViewModel.swift */; };
 		389E99932BCEC52F000309B8 /* BGM220P.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99922BCEC52F000309B8 /* BGM220P.swift */; };
 		389E99952BCF2127000309B8 /* BGM220PGatt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99942BCF2127000309B8 /* BGM220PGatt.swift */; };
+		389E99982BD00EDE000309B8 /* CBUUID+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E99972BD00EDE000309B8 /* CBUUID+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		389E998F2BCEB5F3000309B8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		389E99922BCEC52F000309B8 /* BGM220P.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGM220P.swift; sourceTree = "<group>"; };
 		389E99942BCF2127000309B8 /* BGM220PGatt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGM220PGatt.swift; sourceTree = "<group>"; };
+		389E99972BD00EDE000309B8 /* CBUUID+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBUUID+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 		389E99562BCEA92B000309B8 /* HPDemo */ = {
 			isa = PBXGroup;
 			children = (
+				389E99962BD00EB6000309B8 /* Extension */,
 				389E99912BCEC511000309B8 /* Model */,
 				389E998E2BCEB307000309B8 /* ViewModel */,
 				389E998B2BCEB1AA000309B8 /* View */,
@@ -187,6 +190,14 @@
 				389E99942BCF2127000309B8 /* BGM220PGatt.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		389E99962BD00EB6000309B8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				389E99972BD00EDE000309B8 /* CBUUID+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 				389E99832BCEAA65000309B8 /* BLEManager.swift in Sources */,
 				389E998D2BCEB202000309B8 /* HomeView.swift in Sources */,
 				389E99952BCF2127000309B8 /* BGM220PGatt.swift in Sources */,
+				389E99982BD00EDE000309B8 /* CBUUID+Extension.swift in Sources */,
 				389E99582BCEA92B000309B8 /* HPDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
