@@ -18,11 +18,15 @@ struct HomeView: View {
     @State private var isScanning = false
     @State private var txMethod = TXMethod.Notifications
     
+    
     var body: some View {
+        let connectedDevice = vm.device
         VStack{
-            ProgressView()
-                .scaleEffect(2)
-                .padding(.bottom, 50)
+            if (vm.testActive){
+                ProgressView()
+                    .scaleEffect(2)
+                    .padding(.bottom, 50)
+            }
             VStack{
                 Button {
                     if (isScanning){
@@ -32,18 +36,7 @@ struct HomeView: View {
                     }
                     isScanning = !isScanning
                 } label: {
-                    Text(isScanning ? "Stop Scan" : "Start Scan")
-                        .frame(maxWidth: .infinity)
-                }
-                .padding(10)
-                .foregroundColor(.white)
-                .background(.blue)
-                .cornerRadius(5)
-                
-                Button {
-
-                } label: {
-                    Text("Begin Test")
+                    Text(isScanning ? "Disconnect" : "Connect")
                         .frame(maxWidth: .infinity)
                 }
                 .padding(10)
@@ -58,38 +51,25 @@ struct HomeView: View {
                     bottom: 0,
                     trailing: 50))
             
-            Picker("TX Method", selection: $txMethod){
-                Text("Notifications").tag(TXMethod.Notifications)
-                Text("Indications").tag(TXMethod.Indications)
-            }
-            .pickerStyle(.segmented)
-            .padding(
-                EdgeInsets(
-                    top: 20,
-                    leading: 50,
-                    bottom: 0,
-                    trailing: 50))
-            Text("Transmit Method: \(txMethod)")
-            
             VStack{
                 HStack{
                     Text("Connection Interval: ")
                     Spacer()
-                    Text("30ms")
-                }
+                    Text("\(connectedDevice?.connectionInterval ?? 30)")
+                }.font(.title2)
+                
                 HStack{
                     Text("PHY: ")
                     Spacer()
-                    Text("2M")
-                }
+                    Text("\(connectedDevice?.phy.rawValue ?? "2")")
+                }.font(.title2)
+                
                 HStack{
                     Text("MTU: ")
                     Spacer()
-                    Text("247")
-                }
-                HStack{
-                    
-                }
+                    Text("\(connectedDevice?.mtuSize ?? 247)")
+                }.font(.title2)
+
             }
             .padding(
                 EdgeInsets(
@@ -100,20 +80,22 @@ struct HomeView: View {
             
             VStack{
                 HStack{
-                    Text("Bytes Sent:")
+                    Text("Bytes Received:")
                     Spacer()
-                    Text("12,394")
-                }
+                    Text("\(connectedDevice?.bytesReceived ?? 0)")
+                }.font(.title2)
+                
                 HStack{
                     Text("Elapsed Time:")
                     Spacer()
-                    Text("12.34 Seconds")
-                }
+                    Text("\(connectedDevice?.elapsedTime ?? 0) Seconds")
+                }.font(.title2)
+                
                 HStack{
                     Text("Avg Throughput:")
                     Spacer()
-                    Text("328kbps")
-                }
+                    Text("\(connectedDevice?.throughput ?? 0) kbps")
+                }.font(.title2)
             }
             .padding(
                 EdgeInsets(

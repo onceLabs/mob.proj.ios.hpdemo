@@ -14,9 +14,15 @@ let AdvService = CBUUID(string: "802A0000-4EF4-4E59-B573-2BED4A4AC159")
 protocol BLEManagerProviding {
     func startScan()
     func stopScan()
+    func getConnectedPeripherals() -> [Peripheral]
+    var selectedDevicePublisher: Published<BGM220P?>.Publisher { get }
 }
 
 public class BLEManager: NSObject, BLEManagerProviding {
+    
+    @Published private var selectedDevice: BGM220P?
+    
+    var selectedDevicePublisher: Published<BGM220P?>.Publisher {$selectedDevice}
     
     private var centralManager: CBCentralManager?
     private var peripherals : [UUID: Peripheral] = [:]
@@ -37,6 +43,9 @@ public class BLEManager: NSObject, BLEManagerProviding {
         centralManager?.stopScan()
     }
     
+    public func getConnectedPeripherals() -> [Peripheral] {
+        return peripherals.values.filter { $0.isConnected() }
+    }
 }
 
 
@@ -72,6 +81,7 @@ extension BLEManager: CBCentralManagerDelegate {
                 // Add to peripherals
                 if let newPeripheral = BGM220P(peripheral: peripheral, advData: advertisementData) as (any Peripheral)? {
                     peripherals[peripheral.identifier] = newPeripheral
+                    stopScan()
                     centralManager?.connect(peripheral)
                 }
             }
@@ -81,7 +91,8 @@ extension BLEManager: CBCentralManagerDelegate {
     public func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connected to Peripheral")
         // Check if peripheral is in peripherals
-        if let peripheral = peripherals[peripheral.identifier] {
+        if let peripheral = peripherals[peripheral.identifier] as? BGM220P{
+            selectedDevice = peripheral
             peripheral.didConnect()
         }
     }

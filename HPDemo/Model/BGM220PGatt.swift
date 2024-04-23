@@ -22,6 +22,7 @@ struct BGM220PGatt {
     var supervisionTimeoutCharacteristic: CBCharacteristic?
     var pduSizeCharacteristic: CBCharacteristic?
     var mtuSizeCharacteristic: CBCharacteristic?
+
     
     mutating func foundCharacteristic(characteristic: CBCharacteristic) -> Bool {
         switch characteristic.uuid {
