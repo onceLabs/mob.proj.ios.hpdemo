@@ -42,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		386FEE7B2BD9823B006E0738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		389E99542BCEA92B000309B8 /* HPDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HPDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389E99572BCEA92B000309B8 /* HPDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDemoApp.swift; sourceTree = "<group>"; };
 		389E99592BCEA92B000309B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 		389E99562BCEA92B000309B8 /* HPDemo */ = {
 			isa = PBXGroup;
 			children = (
+				386FEE7B2BD9823B006E0738 /* Info.plist */,
 				389E99962BD00EB6000309B8 /* Extension */,
 				389E99912BCEC511000309B8 /* Model */,
 				389E998E2BCEB307000309B8 /* ViewModel */,
@@ -508,6 +510,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HPDemo/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth will be used to scan for nearby BLE devices";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -547,6 +550,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HPDemo/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Bluetooth will be used to scan for nearby BLE devices";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

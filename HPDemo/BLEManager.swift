@@ -21,9 +21,8 @@ protocol BLEManagerProviding {
 public class BLEManager: NSObject, BLEManagerProviding {
     
     @Published private var selectedDevice: BGM220P?
-    
     var selectedDevicePublisher: Published<BGM220P?>.Publisher {$selectedDevice}
-    
+    private var btReady = false
     private var centralManager: CBCentralManager?
     private var peripherals : [UUID: Peripheral] = [:]
     
@@ -36,6 +35,10 @@ public class BLEManager: NSObject, BLEManagerProviding {
     }
     
     public func startScan(){
+        if (!btReady){
+            print("Tried to start scanning before Bluetooth initialized")
+        }
+        // Permissions request would be triggered here
         centralManager?.scanForPeripherals(withServices: [])
     }
     
